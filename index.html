@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>AI Money Mentor</title>
+
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+
+<div class="app">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <h2 class="logo">💰 Mentor</h2>
+
+    <nav>
+      <div class="nav-item active"><i data-lucide="home"></i> Dashboard</div>
+      <div class="nav-item"><i data-lucide="bar-chart-3"></i> Analytics</div>
+      <div class="nav-item"><i data-lucide="target"></i> Goals</div>
+      <div class="nav-item"><i data-lucide="settings"></i> Settings</div>
+    </nav>
+
+    <button class="theme-btn" onclick="toggleDarkMode()">🌙 Toggle Theme</button>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <header class="topbar">
+      <h1>AI Money Mentor Dashboard</h1>
+      <p>Your Personal Financial Guide</p>
+    </header>
+
+    <!-- KPI ROW -->
+    <div class="kpi-row">
+
+      <div class="card kpi" id="scoreCard">
+        <h3>Financial Score</h3>
+        <h1 id="score">0</h1>
+        <p id="status"></p>
+      </div>
+
+      <div class="card kpi">
+        <h3>Monthly Savings</h3>
+        <h2 id="monthlySavings">₹0</h2>
+      </div>
+
+      <div class="card kpi">
+        <h3>Spending Ratio</h3>
+        <p id="ratioText">--</p>
+      </div>
+
+    </div>
+
+    <!-- MAIN ROW -->
+    <div class="main-row">
+
+      <!-- INPUT -->
+      <div class="card">
+        <h2>Enter Financial Data</h2>
+
+        <input type="number" id="income" placeholder="Monthly Income">
+        <input type="number" id="expenses" placeholder="Monthly Expenses">
+        <input type="number" id="savings" placeholder="Current Savings">
+
+        <select id="goal">
+          <option>Emergency Fund</option>
+          <option>Buy House</option>
+          <option>Retirement</option>
+          <option>Car</option>
+        </select>
+
+        <button onclick="analyze()">Analyze My Finances</button>
+      </div>
+
+      <!-- CHART -->
+      <div class="card">
+        <h2>Financial Overview</h2>
+        <canvas id="inputChart"></canvas>
+      </div>
+
+    </div>
+
+    <!-- BOTTOM ROW -->
+    <div class="bottom-row">
+
+      <div class="card">
+        <h2>AI Advice</h2>
+        <p id="aiAdvice"></p>
+      </div>
+
+      <div class="card">
+        <h2>Goal Advice</h2>
+        <p id="goalAdvice"></p>
+      </div>
+
+      <div class="card">
+        <h2>Projection</h2>
+        <p id="projection"></p>
+      </div>
+
+      <div class="card">
+        <h2>Smart Allocation</h2>
+        <p>50% Savings</p>
+        <p>30% Investment</p>
+        <p>20% Emergency</p>
+      </div>
+
+    </div>
+
+  </main>
+
+</div>
+
+<script src="script.js"></script>
+<script>lucide.createIcons();</script>
+
+</body>
+</html>
