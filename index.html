@@ -8,6 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
 </head>
 
 <body>
@@ -16,107 +17,118 @@
 
   <!-- SIDEBAR -->
   <aside class="sidebar">
-    <h2>💰 Mentor</h2>
+    <h2 class="logo">💰 Mentor</h2>
 
-    <div class="nav">
-      <button onclick="showSection('dashboard')">Dashboard</button>
-      <button onclick="showSection('analytics')">Analytics</button>
-      <button onclick="showSection('goals')">Goals</button>
-      <button onclick="showSection('settings')">Settings</button>
-    </div>
+    <nav>
+      <div class="nav-item active"><i data-lucide="home"></i> Dashboard</div>
+      <div class="nav-item"><i data-lucide="bar-chart-3"></i> Analytics</div>
+      <div class="nav-item"><i data-lucide="target"></i> Goals</div>
+      <div class="nav-item"><i data-lucide="settings"></i> Settings</div>
+    </nav>
 
-    <button onclick="toggleDark()">🌙 Dark Mode</button>
+    <button class="theme-btn" onclick="toggleDarkMode()">🌙 Toggle Theme</button>
   </aside>
 
   <!-- MAIN -->
   <main class="main">
 
-    <!-- DASHBOARD -->
-    <section id="dashboard" class="section active">
+    <header class="topbar">
+      <h1>AI Money Mentor Dashboard</h1>
+      <p>Your Personal Financial Guide</p>
+    </header>
 
-      <h1>Dashboard</h1>
+    <!-- KPI ROW -->
+    <div class="kpi-row">
 
-      <div class="grid">
+      <div class="card kpi" id="scoreCard">
+        <h3>Financial Score</h3>
+        <h1 id="score">0</h1>
+        <p id="status"></p>
+      </div>
 
-        <div class="card">
-          <h3>Income</h3>
-          <input id="income" type="number">
-        </div>
+      <div class="card kpi">
+        <h3>Monthly Savings</h3>
+        <h2 id="monthlySavings">₹0</h2>
+      </div>
 
-        <div class="card">
-          <h3>Expenses</h3>
-          <input id="expenses" type="number">
-        </div>
+      <div class="card kpi">
+        <h3>Spending Ratio</h3>
+        <p id="ratioText">--</p>
+      </div>
 
-        <div class="card">
-          <h3>Savings</h3>
-          <button onclick="calculate()">Analyze</button>
-          <p id="savings"></p>
-        </div>
+    </div>
 
+    <!-- MAIN ROW -->
+    <div class="main-row">
+
+      <div class="card">
+        <h2>Enter Financial Data</h2>
+
+        <input type="number" id="income" placeholder="Monthly Income">
+        <input type="number" id="expenses" placeholder="Monthly Expenses">
+        <input type="number" id="savings" placeholder="Current Savings">
+
+        <select id="goal">
+          <option>Emergency Fund</option>
+          <option>Buy House</option>
+          <option>Retirement</option>
+          <option>Car</option>
+        </select>
+
+        <button onclick="analyze()">Analyze My Finances</button>
       </div>
 
       <div class="card">
-        <h2>Financial Score</h2>
-        <h1 id="score"></h1>
+        <h2>Financial Overview</h2>
+        <canvas id="inputChart"></canvas>
       </div>
 
-      <!-- CHATBOT -->
-      <div class="card chatbot">
+    </div>
 
-        <h2>AI Assistant</h2>
-
-        <div id="chatBox"></div>
-
-        <div class="chat-input">
-          <input id="userInput" placeholder="Ask about finance...">
-          <button onclick="sendMessage()">Send</button>
-        </div>
-
-      </div>
-
-    </section>
-
-    <!-- ANALYTICS -->
-    <section id="analytics" class="section">
-
-      <h1>Analytics</h1>
+    <!-- INTELLIGENCE + FEATURES -->
+    <div class="bottom-row">
 
       <div class="card">
-        <canvas id="chart"></canvas>
+        <h2>🧠 Financial Intelligence</h2>
+        <p id="decisionText"></p>
       </div>
-
-    </section>
-
-    <!-- GOALS -->
-    <section id="goals" class="section">
-
-      <h1>Goals</h1>
 
       <div class="card">
-        <p>Goal Target: ₹10,00,000</p>
-        <p id="goalTime"></p>
+        <h2>📊 Benchmark</h2>
+        <p id="benchmarkText"></p>
       </div>
-
-    </section>
-
-    <!-- SETTINGS -->
-    <section id="settings" class="section">
-
-      <h1>Settings</h1>
 
       <div class="card">
-        <p>Theme</p>
-        <button onclick="toggleDark()">Toggle Dark Mode</button>
+        <h2>🚨 Risk Alerts</h2>
+        <ul id="riskList"></ul>
       </div>
 
-    </section>
+      <div class="card">
+        <h2>🎯 Goal Timeline</h2>
+        <p id="goalTimeline"></p>
+      </div>
+
+    </div>
+
+    <!-- SIMULATOR -->
+    <div class="card">
+      <h2>⚡ What-if Simulator</h2>
+
+      <label>Income</label>
+      <input type="range" id="incomeSlider" min="0" max="200000" step="1000" oninput="updateSimulation()">
+
+      <label>Expenses</label>
+      <input type="range" id="expenseSlider" min="0" max="200000" step="1000" oninput="updateSimulation()">
+
+      <p id="simResult"></p>
+    </div>
 
   </main>
 
 </div>
 
 <script src="script.js"></script>
+<script>lucide.createIcons();</script>
 
 </body>
 </html>
