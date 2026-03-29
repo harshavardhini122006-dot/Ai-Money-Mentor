@@ -61,7 +61,6 @@
     <!-- MAIN ROW -->
     <div class="main-row">
 
-      <!-- INPUT -->
       <div class="card">
         <h2>Enter Financial Data</h2>
 
@@ -79,7 +78,6 @@
         <button onclick="analyze()">Analyze My Finances</button>
       </div>
 
-      <!-- CHART -->
       <div class="card">
         <h2>Financial Overview</h2>
         <canvas id="inputChart"></canvas>
@@ -87,31 +85,42 @@
 
     </div>
 
-    <!-- BOTTOM ROW -->
+    <!-- INTELLIGENCE + FEATURES -->
     <div class="bottom-row">
 
       <div class="card">
-        <h2>AI Advice</h2>
-        <p id="aiAdvice"></p>
+        <h2>🧠 Financial Intelligence</h2>
+        <p id="decisionText"></p>
       </div>
 
       <div class="card">
-        <h2>Goal Advice</h2>
-        <p id="goalAdvice"></p>
+        <h2>📊 Benchmark</h2>
+        <p id="benchmarkText"></p>
       </div>
 
       <div class="card">
-        <h2>Projection</h2>
-        <p id="projection"></p>
+        <h2>🚨 Risk Alerts</h2>
+        <ul id="riskList"></ul>
       </div>
 
       <div class="card">
-        <h2>Smart Allocation</h2>
-        <p>50% Savings</p>
-        <p>30% Investment</p>
-        <p>20% Emergency</p>
+        <h2>🎯 Goal Timeline</h2>
+        <p id="goalTimeline"></p>
       </div>
 
+    </div>
+
+    <!-- SIMULATOR -->
+    <div class="card">
+      <h2>⚡ What-if Simulator</h2>
+
+      <label>Income</label>
+      <input type="range" id="incomeSlider" min="0" max="200000" step="1000" oninput="updateSimulation()">
+
+      <label>Expenses</label>
+      <input type="range" id="expenseSlider" min="0" max="200000" step="1000" oninput="updateSimulation()">
+
+      <p id="simResult"></p>
     </div>
 
   </main>
