@@ -5,7 +5,6 @@ body {
   transition: 0.3s;
 }
 
-/* APP */
 .app {
   display: flex;
   height: 100vh;
@@ -40,7 +39,6 @@ body {
   background: rgba(255,255,255,0.1);
 }
 
-/* BUTTON */
 .theme-btn {
   padding: 10px;
   background: #2563eb;
@@ -133,13 +131,12 @@ body.dark .sidebar {
 body.dark .card {
   background: #111827;
   color: #e5e7eb;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.4);
 }
 
 body.dark input,
 body.dark select {
   background: #0f172a;
-  color: #e5e7eb;
+  color: white;
   border: 1px solid #334155;
 }
 
@@ -147,20 +144,14 @@ body.dark button {
   background: #22c55e;
 }
 
-body.dark button:hover {
-  background: #16a34a;
-}
-
 /* RESPONSIVE */
 @media (max-width: 1000px) {
   .main-row {
     grid-template-columns: 1fr;
   }
-
   .kpi-row {
     grid-template-columns: 1fr;
   }
-
   .bottom-row {
     grid-template-columns: 1fr 1fr;
   }
